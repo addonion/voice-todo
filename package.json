@@ -1,0 +1,21 @@
+{
+  "name": "voice-todo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "type-check": "turbo run type-check"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.18.3",
+  "devDependencies": {
+    "@types/node": "^24.7.2",
+    "turbo": "^2.5.8",
+    "typescript": "^5.9.3"
+  }
+}
