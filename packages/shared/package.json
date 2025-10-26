@@ -1,0 +1,21 @@
+{
+	"name": "shared",
+	"version": "0.0.1",
+	"private": true,
+	"type": "module",
+	"main": "./index.ts",
+	"types": "./index.ts",
+	"scripts": {
+		"dev": "convex dev",
+		"deploy": "convex deploy",
+		"codegen": "convex dev --once",
+		"typecheck": "convex typecheck"
+	},
+	"dependencies": {
+		"convex": "^1.28.0"
+	},
+	"devDependencies": {
+		"@types/node": "^24.9.1",
+		"typescript": "^5.9.3"
+	}
+}
