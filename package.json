@@ -27,6 +27,7 @@
 		"typescript": "^5.9.3"
 	},
 	"dependencies": {
+		"@convex-dev/auth": "^0.0.90",
 		"convex": "^1.28.0"
 	}
 }

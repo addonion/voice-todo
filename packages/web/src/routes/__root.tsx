@@ -1,3 +1,4 @@
+import { ConvexAuthProvider } from '@convex-dev/auth/react';
 import { TanStackDevtools } from '@tanstack/react-devtools';
 import { QueryClient } from '@tanstack/react-query';
 import {
@@ -6,9 +7,8 @@ import {
 	Scripts,
 } from '@tanstack/react-router';
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools';
-
+import { ConvexReactClient } from 'convex/react';
 import appCss from '../styles.css?url';
-import { ConvexProvider, ConvexReactClient } from 'convex/react';
 
 export const Route = createRootRouteWithContext<{
 	queryClient: QueryClient;
@@ -48,7 +48,9 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 				<HeadContent />
 			</head>
 			<body>
-				<ConvexProvider client={convexClient}>{children}</ConvexProvider>
+				<ConvexAuthProvider client={convexClient}>
+					{children}
+				</ConvexAuthProvider>
 				<TanStackDevtools
 					config={{
 						position: 'bottom-right',
