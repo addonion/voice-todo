@@ -1,17 +1,16 @@
-import { ConvexAuthProvider } from '@convex-dev/auth/react';
-import { TanStackDevtools } from '@tanstack/react-devtools';
-import { QueryClient } from '@tanstack/react-query';
+import { ConvexAuthProvider } from '@convex-dev/auth/react'
+import { TanStackDevtools } from '@tanstack/react-devtools'
+import type { QueryClient } from '@tanstack/react-query'
 import {
 	createRootRouteWithContext,
 	HeadContent,
 	Scripts,
-} from '@tanstack/react-router';
-import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools';
-import { ConvexReactClient } from 'convex/react';
-import appCss from '../styles.css?url';
+} from '@tanstack/react-router'
+import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
+import { ConvexReactClient } from 'convex/react'
 
 export const Route = createRootRouteWithContext<{
-	queryClient: QueryClient;
+	queryClient: QueryClient
 }>()({
 	head: () => ({
 		meta: [
@@ -26,21 +25,13 @@ export const Route = createRootRouteWithContext<{
 				title: 'TanStack Start Starter',
 			},
 		],
-		links: [
-			{
-				rel: 'stylesheet',
-				href: appCss,
-			},
-		],
 	}),
 
 	shellComponent: RootDocument,
-});
+})
 
 function RootDocument({ children }: { children: React.ReactNode }) {
-	const convexClient = new ConvexReactClient(
-		import.meta.env.VITE_CONVEX_URL as string,
-	);
+	const convexClient = new ConvexReactClient(import.meta.env.VITE_CONVEX_URL)
 
 	return (
 		<html lang="en">
@@ -65,5 +56,5 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 				<Scripts />
 			</body>
 		</html>
-	);
+	)
 }
