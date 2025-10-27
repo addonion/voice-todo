@@ -10,6 +10,11 @@
 			"cache": false,
 			"persistent": true
 		},
+		"convex:dev": {
+			"cache": false,
+			"persistent": true,
+			"outputs": []
+		},
 		"prebuild": {
 			"cache": false,
 			"outputs": ["android/**", "ios/**"]
