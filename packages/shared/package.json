@@ -12,11 +12,12 @@
 		"typecheck": "convex typecheck"
 	},
 	"dependencies": {
-		"@auth/core": "0.37.0",
+		"@auth/core": "0.41.1",
+		"@tamagui/config": "^1.135.4",
 		"convex": "^1.28.0"
 	},
 	"devDependencies": {
-		"@types/node": "^24.9.1",
+		"@types/node": "^24.9.2",
 		"typescript": "^5.9.3"
 	}
 }

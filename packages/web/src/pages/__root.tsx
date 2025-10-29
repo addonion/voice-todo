@@ -1,4 +1,5 @@
 import { ConvexAuthProvider } from '@convex-dev/auth/react'
+import { TamaguiProvider } from '@tamagui/core'
 import { TanStackDevtools } from '@tanstack/react-devtools'
 import type { QueryClient } from '@tanstack/react-query'
 import {
@@ -8,6 +9,8 @@ import {
 } from '@tanstack/react-router'
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { ConvexReactClient } from 'convex/react'
+import { tamaguiConfig } from 'shared'
+import baseCss from '../app/base.css?url'
 
 export const Route = createRootRouteWithContext<{
 	queryClient: QueryClient
@@ -25,6 +28,12 @@ export const Route = createRootRouteWithContext<{
 				title: 'TanStack Start Starter',
 			},
 		],
+		links: [
+			{
+				rel: 'stylesheet',
+				href: baseCss,
+			},
+		],
 	}),
 
 	shellComponent: RootDocument,
@@ -39,9 +48,11 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 				<HeadContent />
 			</head>
 			<body>
-				<ConvexAuthProvider client={convexClient}>
-					{children}
-				</ConvexAuthProvider>
+				<TamaguiProvider config={tamaguiConfig}>
+					<ConvexAuthProvider client={convexClient}>
+						{children}
+					</ConvexAuthProvider>
+				</TamaguiProvider>
 				<TanStackDevtools
 					config={{
 						position: 'bottom-right',

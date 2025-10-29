@@ -1,14 +1,23 @@
 {
-	"$schema": "https://biomejs.dev/schemas/2.3.1/schema.json",
-	"vcs": { "enabled": false, "clientKind": "git", "useIgnoreFile": false },
-	"files": { "ignoreUnknown": false },
-	"formatter": { "enabled": true, "indentStyle": "tab" },
+	"$schema": "https://biomejs.dev/schemas/2.3.2/schema.json",
+	"vcs": {
+		"enabled": false,
+		"clientKind": "git",
+		"useIgnoreFile": false
+	},
+	"files": {
+		"ignoreUnknown": false
+	},
+	"formatter": {
+		"enabled": true,
+		"indentStyle": "tab"
+	},
 	"linter": {
 		"enabled": true,
 		"rules": {
 			"recommended": true,
 			"correctness": {
-				"noChildrenProp": "error",
+				"noChildrenProp": "off",
 				"noEmptyCharacterClassInRegex": "warn",
 				"noEmptyPattern": "warn",
 				"noUndeclaredVariables": "error",
@@ -21,7 +30,9 @@
 				"useJsxKeyInIterable": "error",
 				"useValidTypeof": "error"
 			},
-			"security": { "noDangerouslySetInnerHtmlWithChildren": "error" },
+			"security": {
+				"noDangerouslySetInnerHtmlWithChildren": "error"
+			},
 			"suspicious": {
 				"noCommentText": "error",
 				"noDoubleEquals": "warn",
@@ -36,10 +47,18 @@
 				"noWith": "warn"
 			}
 		},
-		"includes": ["**", "!android/app/build", "!dist/*"]
+		"includes": [
+			"**",
+			"!android/app/build",
+			"!dist/*"
+		]
 	},
 	"javascript": {
-		"formatter": { "quoteStyle": "single", "semicolons": "asNeeded" },
+		"formatter": {
+			"quoteStyle": "single",
+			"semicolons": "asNeeded",
+			"bracketSpacing": true
+		},
 		"globals": [
 			"onanimationend",
 			"ongamepadconnected",
@@ -171,18 +190,44 @@
 		]
 	},
 	"overrides": [
-		{ "includes": ["**/*.d.ts"], "linter": { "rules": {} } },
 		{
-			"includes": ["**/metro.config.js"],
-			"javascript": { "globals": ["exports"] }
+			"includes": [
+				"**/*.d.ts"
+			],
+			"linter": {
+				"rules": {}
+			}
 		},
-		{ "includes": ["**/*.js", "**/*.jsx"] },
 		{
-			"includes": ["**/*.ts", "**/*.tsx", "**/*.d.ts"],
-			"javascript": { "globals": [] },
+			"includes": [
+				"**/metro.config.js"
+			],
+			"javascript": {
+				"globals": [
+					"exports"
+				]
+			}
+		},
+		{
+			"includes": [
+				"**/*.js",
+				"**/*.jsx"
+			]
+		},
+		{
+			"includes": [
+				"**/*.ts",
+				"**/*.tsx",
+				"**/*.d.ts"
+			],
+			"javascript": {
+				"globals": []
+			},
 			"linter": {
 				"rules": {
-					"complexity": { "noUselessConstructor": "warn" },
+					"complexity": {
+						"noUselessConstructor": "warn"
+					},
 					"correctness": {
 						"noUndeclaredVariables": "off",
 						"noUnusedVariables": "warn"
@@ -191,7 +236,9 @@
 						"noCommonJs": "warn",
 						"useConsistentArrayType": {
 							"level": "warn",
-							"options": { "syntax": "shorthand" }
+							"options": {
+								"syntax": "shorthand"
+							}
 						}
 					},
 					"suspicious": {
@@ -202,10 +249,18 @@
 				}
 			}
 		},
-		{ "includes": ["*.web.*"] }
+		{
+			"includes": [
+				"*.web.*"
+			]
+		}
 	],
 	"assist": {
 		"enabled": true,
-		"actions": { "source": { "organizeImports": "on" } }
+		"actions": {
+			"source": {
+				"organizeImports": "on"
+			}
+		}
 	}
 }
