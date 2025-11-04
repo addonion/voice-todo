@@ -28,8 +28,8 @@
 	},
 	"dependencies": {
 		"@convex-dev/auth": "^0.0.90",
-		"@tamagui/core": "^1.135.4",
+		"@tamagui/core": "^1.135.7",
 		"convex": "^1.28.0",
-		"tamagui": "^1.135.4"
+		"tamagui": "^1.135.7"
 	}
 }

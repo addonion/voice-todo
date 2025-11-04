@@ -1,7 +1,6 @@
-import { createFileRoute } from '@tanstack/react-router'
-import { useMutation } from 'convex/react'
+import { createFileRoute, Link } from '@tanstack/react-router'
+import { useConvexAuth, useMutation } from 'convex/react'
 import { api } from 'shared'
-import { LoginForm } from '@/features/user'
 
 export const Route = createFileRoute('/')({
 	component: App,
@@ -9,6 +8,8 @@ export const Route = createFileRoute('/')({
 
 function App() {
 	const addTask = useMutation(api.tasks.addTask)
+	const { isAuthenticated } = useConvexAuth()
+	console.log('isAuthenticated', isAuthenticated)
 
 	const handleAddTask = async () => {
 		await addTask({
@@ -18,9 +19,9 @@ function App() {
 	}
 
 	return (
-		<div className="min-h-screen bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900">
-			<section className="relative py-20 px-6 text-center overflow-hidden">
-				<LoginForm />
+		<div className="min-h-screen bg-linear-to-b from-slate-900 via-slate-800 to-slate-900">
+			<section className="relative py-20 px-6 text-center overflow-hidden text-white">
+				<Link to="/login">Логин</Link>
 				<button
 					type="button"
 					onClick={handleAddTask}
