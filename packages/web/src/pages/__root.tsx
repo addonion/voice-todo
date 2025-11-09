@@ -10,6 +10,7 @@ import {
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools'
 import { ConvexReactClient } from 'convex/react'
 import { tamaguiConfig } from 'shared'
+import { RightMenu } from '@/widget/menu'
 import baseCss from '../app/base.css?url'
 
 export const Route = createRootRouteWithContext<{
@@ -47,6 +48,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 			<body>
 				<TamaguiProvider config={tamaguiConfig}>
 					<ConvexAuthProvider client={convexClient}>
+						<RightMenu />
 						{children}
 					</ConvexAuthProvider>
 				</TamaguiProvider>

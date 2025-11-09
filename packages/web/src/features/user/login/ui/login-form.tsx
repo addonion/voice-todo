@@ -3,15 +3,13 @@ import { useForm } from '@tanstack/react-form'
 import { useNavigate } from '@tanstack/react-router'
 import { useConvexAuth } from 'convex/react'
 import { useTransition } from 'react'
-import { Button, Form, Input, Section, YStack } from 'tamagui'
+import { Button, Form, Input, Section, Spinner, YStack } from 'tamagui'
 
 export const LoginForm = () => {
 	const { signIn } = useAuthActions()
-	const { isAuthenticated } = useConvexAuth()
+	const { isLoading } = useConvexAuth()
 	const navigate = useNavigate()
 	const [isPending, startTransition] = useTransition()
-
-	console.log('isAuthenticated', isAuthenticated)
 
 	const form = useForm({
 		defaultValues: {
@@ -29,6 +27,10 @@ export const LoginForm = () => {
 			}),
 	})
 
+	if (isLoading) {
+		return <Spinner size="small" color="$green10" />
+	}
+
 	return (
 		<Section className="w-100 mx-auto">
 			<Form onSubmit={form.handleSubmit}>
@@ -37,6 +39,7 @@ export const LoginForm = () => {
 						name="email"
 						children={(field) => (
 							<Input
+								autoComplete="email"
 								componentName="email"
 								placeholder="Email"
 								size="$3"
@@ -52,6 +55,7 @@ export const LoginForm = () => {
 						name="password"
 						children={(field) => (
 							<Input
+								autoComplete="password"
 								componentName="password"
 								secureTextEntry
 								placeholder="Password"
